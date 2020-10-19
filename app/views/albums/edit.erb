@@ -11,6 +11,12 @@
 <a href="/albums/refresh">Refresh list</a>
 <br><br>
 
+  <script>
+    $(document).ready(function() {
+      alert('Hello world!');
+    });
+  </script>
+
 <form method="POST" action="/albums">
 
     <input name="_method" value="patch" id="hidden" type="hidden">
@@ -18,13 +24,18 @@
         <br><br>
     <% @user.songs.reverse_each do |s| %>
         <input type="checkbox" name="preferred_song_ids[]" value="<%= s.id %>" <%='checked' if @preferred_song_ids.include?(s.id) %>>
-        <img src="<%= s.album.image %>" alt="album cover">
+        
+        <audio id="<%= s.id %>">
+            <source src="<%= s.preview_url %>" type="audio/mpeg"/>
+        </audio>
+        
+        <img src="<%= s.album.image %>" alt="album cover" id="<%= s.id %>" onclick="
+                
+                document.getElementById(<%= s.id%>).play(); return false;">
+        
         <%= s.album.title %> | 
         <%= s.title %> | 
         <%= s.artists.map { |a| a.name }.join(", ") %>
-        <audio controls="controls">
-            <source src="<%= s.preview_url %>" type="audio/mpeg"/>
-        </audio>
         
         <a href="/albums/<%= s.id %>/delete">Delete</a>
                 
