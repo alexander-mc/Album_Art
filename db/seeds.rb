@@ -1,0 +1,5 @@
+User.create(username: 'user1', password: 'secret1')
+Song.create(title: 'song_title1')
+Album.create(title: 'album_title1', image: 'image1')
+Artist.create(name: 'alexander')
+Setup.create(columns: 3, rows: 10)

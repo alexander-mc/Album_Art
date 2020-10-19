@@ -1,0 +1,34 @@
+<p><%= flash[:albums_refresh] if flash.has?(:albums_refresh) %></p>
+<p><%= flash[:selection_error] if flash.has?(:selection_error) %></p>
+
+
+<h2>Select <%= @num_songs_needed %> album covers you want to show off! | Total songs loaded: <%= @user.songs.count %></h2>
+
+<a href="/albums/select/first">Select most recent</a> | 
+<a href="/albums/select/random">Select random</a> | 
+<a href="/albums/select/none">Unselect all</a> | 
+<a href="/setup">Change layout</a> |
+<a href="/albums/refresh">Refresh list</a>
+<br><br>
+
+<form method="POST" action="/albums">
+
+    <input name="_method" value="patch" id="hidden" type="hidden">
+    <input type="submit" value="Save + Submit!" id="submit">
+        <br><br>
+    <% @user.songs.reverse_each do |s| %>
+        <input type="checkbox" name="preferred_song_ids[]" value="<%= s.id %>" <%='checked' if @preferred_song_ids.include?(s.id) %>>
+        <img src="<%= s.album.image %>" alt="album cover">
+        <%= s.album.title %> | 
+        <%= s.title %> | 
+        <%= s.artists.map { |a| a.name }.join(", ") %>
+        <audio controls="controls">
+            <source src="<%= s.preview_url %>" type="audio/mpeg"/>
+        </audio>
+        
+        <a href="/albums/<%= s.id %>/delete">Delete</a>
+                
+        <br>
+    <% end %>
+
+</form>

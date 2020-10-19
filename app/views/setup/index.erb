@@ -1,0 +1,31 @@
+<p><%= flash[:setup_refresh] if flash.has?(:setup_refresh)%></p>
+
+<h2>Setup the layout</h2>
+
+<p>You have <%= @user.songs.count %> songs available |
+<a href="/setup/refresh">Refresh</a>
+</p> 
+
+<p><b>The number of rows x number of columns cannot exceed this amount.</b></p>
+
+<form method="POST" action='/setup'>
+
+    <label for='rows'>Number of rows: </label>
+    <input type="text" name="rows" id="rows" value="<%= @user.setup.rows if @user.setup %>">
+
+    <br><br>
+    <label for="columns">Number of columns: </label>
+    <input type="text" name="columns" id="columns" value="<%= @user.setup.columns if @user.setup %>">
+   
+    <% if flash.has?(:setup_error) %>
+    <ul>
+        <% flash[:setup_error].each do |error| %>
+            <li><%= error %><br>
+        <% end %>
+    </ul>
+    <% end %>
+
+    <br><br>
+    <input type="submit" value="Submit" id="submit">
+
+</form>

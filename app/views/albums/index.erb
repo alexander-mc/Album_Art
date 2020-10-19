@@ -1,0 +1,17 @@
+<h2><%= @user.username %> | Check out your covers!</h2>
+<a href="/setup">Change layout</a> | 
+<a href="/albums/edit">Edit songs</a> | 
+<a href="/logout">Log Out</a>
+<br><br>
+
+<table>
+  <% @preferred_songs.reverse.each_slice(@user.setup.columns) do |row| %>   
+    <tr>
+      <% row.each do |image| %>
+        <td>
+          <a href="<%= image.external_url %>" target="_blank"><img src="<%= image.album.image %>" alt="album cover"></a>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
