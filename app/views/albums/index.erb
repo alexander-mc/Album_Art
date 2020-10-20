@@ -7,11 +7,15 @@
 <table>
   <% @preferred_songs.reverse.each_slice(@user.setup.columns) do |row| %>   
     <tr>
-      <% row.each do |image| %>
+      <% row.each do |s| %>
         <td>
-          <a href="<%= image.external_url %>" target="_blank"><img src="<%= image.album.image %>" alt="album cover"></a>
+            <img src="<%= s.album.image %>" onclick="playPause('<%= s.id %>')" alt="album cover">
+            <audio preload="auto" id="<%= s.id %>">
+                    <source src="<%= s.preview_url %>" />
+            </audio>
         </td>
       <% end %>
     </tr>
   <% end %>
 </table>
+

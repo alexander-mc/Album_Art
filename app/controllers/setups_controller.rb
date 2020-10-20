@@ -20,7 +20,7 @@ class SetupsController < ApplicationController
             flash[:setup_error] = user.setup.errors.full_messages
             redirect to '/setup'
         elsif user.songs.count < num_songs_needed
-            flash[:setup_error] = Array("You don't have enough songs to display. Please adjust the number of columns/rows.")
+            flash[:setup_error] = Array("This setup requires #{num_songs_needed} songs. Please adjust the number of columns/rows or click on 'Refresh' to see if any more songs can be loaded from Spotify (songs loaded in the past will not be deleted).")
             redirect to '/setup'
         end
 

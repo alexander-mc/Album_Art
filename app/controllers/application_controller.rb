@@ -33,15 +33,9 @@ class ApplicationController < Sinatra::Base
         # Stores Spotify credentials in session
         session[:credentials] = request.env['omniauth.auth']
 
-        if Helpers.current_user(session).setup.nil?
-            Helpers.load_songs(session)
-
-            # Set default preferred songs -- uncomment to enable
-            # Helpers.set_default_preferred_songs(session)
-            
-            redirect to '/setup'
-        end
-
+        Helpers.load_songs(session)
+        
+        redirect to '/setup' if Helpers.current_user(session).setup.nil?
         redirect to '/albums'
     end
 

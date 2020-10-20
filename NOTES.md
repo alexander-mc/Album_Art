@@ -4,10 +4,7 @@ RSpotify serves as a wrapper to help retrieve and parse data from Spotify's API 
 
 I've used the gem omniauth-spotify to authenticate users via Sinatra, since RSpotify uses Rails.
 
-TODO:
-
-1. Layout -- All user to choose number between 10 and 20
-
-2. After going from setup, keep preferred songs as is (do not go to default setting)
-
-3. Play songs on click
+Purpose of this program:
++ Start storing data on your recently played songs on Spotify
++ Display the album covers on past songs in a clean, customizable grid
++ Play 30-second clips of each song to briefly relive the moment
