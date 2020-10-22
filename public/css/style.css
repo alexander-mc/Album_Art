@@ -1,0 +1,166 @@
+/* Removed flexbox, which resulted in scrollbars up/down and left/right
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+*/
+
+body {
+    background: rgb(36, 36, 36);
+    /* background: linear-gradient(0deg, rgba(30, 30, 30), rgba(30, 30, 30)); */
+}
+
+hr {
+    height: 1px;
+    position: relative;
+    margin: auto;
+    width: 80%;
+    border: 0;
+}
+
+.top-line {
+    top: 73px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(235, 235, 235, 0.87), rgba(0, 0, 0, 0));
+}
+
+.bottom-line {
+    top: 132px;
+    width: 55%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(235, 235, 235, 0.651), rgba(0, 0, 0, 0));
+}
+
+.about {
+    margin: auto;
+    text-align: center;
+    position: relative;
+    top: 135px;
+
+    font-family: 'main-info', sans-serif;
+    font-size: 0.85em;
+    letter-spacing: 4px;
+    color: white;
+}
+
+.website-title h1 {
+    font-family: 'website-title', sans-serif;
+    font-weight: normal;
+
+    background-color: white;
+    
+    background: linear-gradient(to right, hsl(192, 100%, 64%),hsla(59, 94%, 67%, 0.945)); 
+    /* background: linear-gradient(to right, #24eee4,#fa38da); */
+    /* background: linear-gradient(to right, #fffefe, #23e7dd); */
+    /* background-image: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+    linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+    linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);  */
+    
+    background-size: 100%;
+    background-repeat: repeat;
+    /* Shows the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  
+    font-size: 5.3em;
+    text-align: center;
+    position: relative;
+    top: 75px;
+    left: -12px;
+    width: 100%;
+    margin: auto;
+    border: 3px solid green;
+}
+
+.login-btn, #signup-txt{
+    /*font-family: 'main-info', sans-serif;*/
+    font-family: 'buttons';
+    color: #fff;
+    font-size: .86em;
+    font-weight: 900;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.login-btn {
+    display: block;
+    padding: .52em;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    top: 95px;
+    width: 217px;                
+    background-color: rgb(72, 190, 161);
+    border-radius: 3px;
+    border: none;
+
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.login-btn:hover {
+    background-color: rgb(61, 155, 131);
+    color: rgb(214, 213, 213);
+}
+
+.login-btn:active {
+    /* font-size: 1rem; */
+     transform: scale(.97);
+    }
+
+#main-wrapper {
+    position: relative;
+    top: 80px;
+    margin: auto;
+    width: 80%;
+    border: 3px solid green;
+}
+
+#signup-txt {
+    display: block;
+    border: 1px solid green;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    top: 100px;
+    width: 25%;
+}
+
+#main-info {
+    font-family: 'main-info', sans-serif;
+    font-size: 1.15em;
+    letter-spacing: 1.3px;
+    text-align: center;
+    color: white;
+
+    position: relative;
+    top: 83px;
+    border: 3px solid green;
+    margin: auto;
+    width: 75%;
+}
+
+#main-info p { margin: 10px }
+
+/* Breakpoints */
+
+@media only screen and (max-width: 550px) {
+    .website-title h1 {
+        font-size: 20vw;
+    }
+    #main-info {
+        font-size: 5vw;
+        color: white;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    #main-info {
+        font-size: 5vw;
+        color: white;
+    }
+}

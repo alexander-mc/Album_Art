@@ -28,26 +28,28 @@ class AlbumsController < ApplicationController
 
         @user.preferred_songs = [] if @user.preferred_songs.nil?
         @preferred_song_ids = JSON.parse(@user.preferred_songs)
-
+        binding.pry
         erb :'/albums/edit'
     end
 
     patch '/albums' do
         user = Helpers.current_user(session)
-
+        
         # Validate selection
         num_songs_needed = user.setup.rows * user.setup.columns
         params[:preferred_song_ids].nil? ? num_selected_songs = 0 : num_selected_songs = params[:preferred_song_ids].count
 
         if num_selected_songs != num_songs_needed
             flash[:selection_error] = "You have selected #{num_selected_songs} songs but need #{num_songs_needed} songs."
+
+            if num_selected_songs != 0
+                Helpers.save_preferred_songs(session, params[:preferred_song_ids])
+            end
+
             redirect to '/albums/edit'
         end
 
-        # Update user's preferred songs
-        user.preferred_songs = params[:preferred_song_ids].map {|s| s.to_i }
-        user.save(validate: false)
-
+        Helpers.save_preferred_songs(session, params[:preferred_song_ids])
         redirect to '/albums'
     end
 
@@ -63,7 +65,7 @@ class AlbumsController < ApplicationController
         
         redirect to '/albums/edit'
     end
-
+ 
     get '/albums/select/:type' do
         redirect to '/login' if !Helpers.is_logged_in?(session)
         redirect to '/setup' if Helpers.current_user(session).setup.nil?       

@@ -1,21 +1,30 @@
-<h2><%= @user.username %> | Check out your covers!</h2>
-<a href="/setup">Change layout</a> | 
-<a href="/albums/edit">Edit songs</a> | 
-<a href="/logout">Log Out</a>
+<header>
+    <h2><%= @user.username %> | Check out your covers!</h2>
+    <nav>
+        <a href="/setup">Change layout</a> | 
+        <a href="/albums/edit">Edit songs</a> | 
+        <a href="/logout">Log Out</a>
+    </nav>
+</header>
 <br><br>
-
-<table>
-  <% @preferred_songs.reverse.each_slice(@user.setup.columns) do |row| %>   
-    <tr>
-      <% row.each do |s| %>
-        <td>
-            <img src="<%= s.album.image %>" onclick="playPause('<%= s.id %>')" alt="album cover">
-            <audio preload="auto" id="<%= s.id %>">
-                    <source src="<%= s.preview_url %>" />
-            </audio>
-        </td>
+<main>
+    <table>
+      <% @preferred_songs.reverse.each_slice(@user.setup.columns) do |row| %>   
+        <tr>
+          <% row.each do |s| %>
+            <td>
+                <%# Temp workaround Spotify bug %>
+                <% if @user.id == 1 %>
+                    <img src="<%= s.album.image %>" onclick="playPause('<%= s.id %>')" alt="album cover">
+                    <audio preload="auto" id="<%= s.id %>">
+                            <source src="<%= s.preview_url %>" />
+                    </audio>
+                <% else %>
+                    <a href="<%= s.external_url %>" target="_blank"><img src="<%= s.album.image %>" alt="album cover"></a>
+                <% end %>                    
+            </td>
+          <% end %>
+        </tr>
       <% end %>
-    </tr>
-  <% end %>
-</table>
-
+    </table>
+</main>

@@ -25,11 +25,10 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/' do
-        redirect to '/signup'
+        erb :index
     end
 
     get '/auth/spotify/callback' do
-
         # Stores Spotify credentials in session
         session[:credentials] = request.env['omniauth.auth']
 

@@ -8,3 +8,10 @@ Purpose of this program:
 + Start storing data on your recently played songs on Spotify
 + Display the album covers on past songs in a clean, customizable grid
 + Play 30-second clips of each song to briefly relive the moment
+
+
+
+
+Catchphrases:
+
+<h3>Inpsired by Apple's Album Artwork screen saver... but for the cool kids</h3>

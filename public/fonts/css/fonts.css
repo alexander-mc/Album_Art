@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'website-title';
+    src: url('../austin-webfont.woff2') format('woff2'),
+         url('../austin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'main-info';
+    src: url('../modernsans-light-webfont.woff2') format('woff2'),
+         url('../modernsans-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'buttons';
+    src: url('../arcon-regular-webfont.woff2') format('woff2'),
+         url('../arcon-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* @font-face {
+    font-family: 'signature';
+    src: url('../yonittasignature-webfont.woff') format('woff2'),
+         url('../yonittasignature-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+} */

@@ -4,28 +4,34 @@
 
 <h2>Select <%= @num_songs_needed %> album covers you want to show off! | Total songs loaded: <%= @user.songs.count %></h2>
 
-<a href="/albums/select/first">Select most recent</a> | 
-<a href="/albums/select/random">Select random</a> | 
+<a href="/albums/select/first">Select <%= @num_songs_needed %> most recent</a> | 
+<a href="/albums/select/random">Select <%= @num_songs_needed %> random</a> | 
 <a href="/albums/select/none">Unselect all</a> | 
 <a href="/setup">Change layout</a> |
-<a href="/albums/refresh">Refresh list</a> |
+<a href="/albums/refresh">Refresh</a> |
 <a href="/logout">Log Out</a>
 <br><br>
 
 <form method="POST" action="/albums">
 
     <input name="_method" value="patch" id="hidden" type="hidden">
-    <input type="submit" value="Save + Submit!" id="submit">
-        <br><br>
+    <input type="submit" value="Check number of songs and move on" id="submit">
+    <br><br>
 
     <% @user.songs.reverse_each do |s| %>
 
         <input type="checkbox" name="preferred_song_ids[]" value="<%= s.id %>" <%='checked' if @preferred_song_ids.include?(s.id) %>>
-                    
-        <img src="<%= s.album.image %>" onclick="playPause('<%= s.id %>')" alt="album cover">
-        <audio preload="auto" id="<%= s.id %>">
-                <source src="<%= s.preview_url %>" />
-        </audio>
+
+        <%# Disabled song preview on click for all users except BuzzLlightYear %>            
+        <% if @user.id == 1 %>
+            <img src="<%= s.album.image %>" onclick="playPause('<%= s.id %>')" alt="album cover">
+
+            <audio preload="auto" id="<%= s.id %>">
+                    <source src="<%= s.preview_url %>" />
+            </audio>
+        <% else %>
+            <img src="<%= s.album.image %>" alt="album cover">            
+        <% end %>
 
         <%= s.album.title %> | 
         <%= s.title %> | 

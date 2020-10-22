@@ -9,31 +9,43 @@ class Helpers
     end
 
     def self.load_songs(session)
-
-        RSpotify::User.new(session[:credentials]).recently_played.reverse_each do |s|
-            user = current_user(session)
-
-            # Find songs if already persisted in database
-            song = Song.find_by(title: s.name)
-
-            # Find or create artist & list artist ids new songs
-            artist_ids = []
-            s.artists.each do |a| 
-                artist = Artist.find_or_create_by(name: a.name)
-                artist_ids << artist.id 
-            end
         
-            # Update or create new song & album
-            if song
-                user_ids = song.user_ids
-                user_ids << user.id unless user_ids.include?(user.id)
-                song.update(title: s.name,  preview_url: s.preview_url, external_url: s.external_urls["spotify"], artist_ids: artist_ids, user_ids: user_ids)
-            else
-                album = Album.find_or_create_by(title: s.album.name, image: s.album.images[2]['url'])
-                album.songs.build(title: s.name, preview_url: s.preview_url, external_url: s.external_urls["spotify"], artist_ids: artist_ids, user_ids: Array(user.id))
-                album.songs.last.save(validate: false)
-            end
+        user = current_user(session)
+        if User.find(1) == user
+            puts "User 1 active. Spotify 'preview_url' currently down. :( Load unsuccessful."
+        else
 
+            RSpotify::User.new(session[:credentials]).recently_played.reverse_each do |s|
+
+                # Find songs if already persisted in database
+                song = Song.find_by(title: s.name)
+
+                # Find or create artist & list artist ids new songs
+                artist_ids = []
+                s.artists.each do |a| 
+                    artist = Artist.find_or_create_by(name: a.name)
+                    artist_ids << artist.id 
+                end
+
+                # Update or create new song & album
+                if song
+
+                    user_ids = song.user_ids
+                    user_ids << user.id unless user_ids.include?(user.id)
+
+                    # Removed preview attribute
+                    song.update(title: s.name, external_url: s.external_urls["spotify"], artist_ids: artist_ids, user_ids: user_ids)
+                
+                elsif
+
+                    album = Album.find_or_create_by(title: s.album.name, image: s.album.images[2]['url'])
+                    
+                    # Removed preview attribute
+                    album.songs.build(title: s.name, external_url: s.external_urls["spotify"], artist_ids: artist_ids, user_ids: Array(user.id))
+                    album.songs.last.save(validate: false)
+
+                end
+            end
         end
     end
 
@@ -42,7 +54,7 @@ class Helpers
 
         num_songs_needed = user.setup.rows * user.setup.columns
         preferred_song_ids = []
-        
+
         user.songs.reverse.take(num_songs_needed).each do |s|
             preferred_song_ids << s.id
         end
@@ -70,6 +82,13 @@ class Helpers
         preferred_song_ids.delete(song_id)
         user.preferred_songs = preferred_song_ids
         user.save(validate: false)
+    end
+
+    def self.save_preferred_songs(session, preferred_song_ids)
+        user = current_user(session)
+        user.preferred_songs = preferred_song_ids.map {|s| s.to_i }
+        user.save(validate: false)
+        binding.pry
     end
 
 end
