@@ -88,7 +88,6 @@ class Helpers
         user = current_user(session)
         user.preferred_songs = preferred_song_ids.map {|s| s.to_i }
         user.save(validate: false)
-        binding.pry
     end
 
 end

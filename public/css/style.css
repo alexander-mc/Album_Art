@@ -10,39 +10,18 @@
 */
 
 body {
-    background: rgb(36, 36, 36);
-    /* background: linear-gradient(0deg, rgba(30, 30, 30), rgba(30, 30, 30)); */
+    background-color: rgb(30, 30, 30);
 }
 
-hr {
-    height: 1px;
+.website-image {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(30, 30, 30)),
+        url('../images/album-art-med.png');
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
-    margin: auto;
-    width: 80%;
-    border: 0;
-}
-
-.top-line {
-    top: 73px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(235, 235, 235, 0.87), rgba(0, 0, 0, 0));
-}
-
-.bottom-line {
-    top: 132px;
-    width: 55%;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(235, 235, 235, 0.651), rgba(0, 0, 0, 0));
-}
-
-.about {
-    margin: auto;
-    text-align: center;
-    position: relative;
-    top: 135px;
-
-    font-family: 'main-info', sans-serif;
-    font-size: 0.85em;
-    letter-spacing: 4px;
-    color: white;
 }
 
 .website-title h1 {
@@ -57,26 +36,71 @@ hr {
     /* background-image: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
     linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
     linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);  */
-    
+
     background-size: 100%;
     background-repeat: repeat;
-    /* Shows the gradient as a text color rather than element bg. */
+    /* Shows the gradient as a text color */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
-  
-    font-size: 5.3em;
-    text-align: center;
+
     position: relative;
-    top: 75px;
-    left: -12px;
     width: 100%;
     margin: auto;
-    border: 3px solid green;
+    text-align: center;
 }
 
-.login-btn, #signup-txt{
+.website-title h1#main-title {
+    font-size: 4.75em;
+    top: 101.5px;
+    left: -3px;
+    /* font-size: 6.25em; */
+    /* left: -12px; */
+}
+
+.website-title-width {
+    /* Remove any overlap with .website-title h1 */
+    position: relative;
+    width: 75%;
+    top: 21px;
+    left: -3px;
+    margin: auto;
+    background: linear-gradient(to right, hsl(192, 100%, 64%),hsla(59, 94%, 67%, 0.945)); 
+    background-size: 100%;
+    background-repeat: repeat;
+    /* Shows the gradient as a text color */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+.website-title h1.registration-title {
+    font-size: 3em;
+}
+
+hr {
+    height: 1px;
+    position: relative;
+    margin: auto;
+    border: 0;
+}
+
+.top-line {
+    top: 115.4px;
+    width: 480px;
+    /* background: white; */
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(218, 216, 216, 0.87), rgba(0, 0, 0, 0));
+}
+
+/* .bottom-line {
+    top: 133px;
+    width: 55%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(235, 235, 235, 0.651), rgba(0, 0, 0, 0));
+} */
+
+.submit-btn, .registration-link{
     /*font-family: 'main-info', sans-serif;*/
     font-family: 'buttons';
     color: #fff;
@@ -86,14 +110,14 @@ hr {
     letter-spacing: 2px;
 }
 
-.login-btn {
+.submit-btn {
     display: block;
     padding: .52em;
+    width: 248px;                
     margin: auto;
     text-align: center;
     position: relative;
-    top: 95px;
-    width: 217px;                
+    top: 118px;
     background-color: rgb(72, 190, 161);
     border-radius: 3px;
     border: none;
@@ -102,32 +126,57 @@ hr {
     transition: all 0.4s;
 }
 
-.login-btn:hover {
-    background-color: rgb(61, 155, 131);
+.submit-btn:hover, .registration-link:hover {
     color: rgb(214, 213, 213);
 }
 
-.login-btn:active {
-    /* font-size: 1rem; */
-     transform: scale(.97);
-    }
-
-#main-wrapper {
-    position: relative;
-    top: 80px;
-    margin: auto;
-    width: 80%;
-    border: 3px solid green;
+.submit-btn:hover {
+    background-color: rgb(61, 155, 131);
 }
 
-#signup-txt {
-    display: block;
-    border: 1px solid green;
+.submit-btn:active {
+    /* font-size: 1rem; */
+     transform: scale(.97);
+}
+
+.about {
     margin: auto;
     text-align: center;
     position: relative;
-    top: 100px;
+    top: 159px;
+
+    font-family: 'main-info', sans-serif;
+    font-size: 0.85em;
+    letter-spacing: 3.8px;
+    color: white;
+    white-space: nowrap;
+}
+
+.registration-link {
+    display: block;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    top: 132px;
     width: 25%;
+    white-space: nowrap;
+}    
+
+/* #main-background{
+    background-image: linear-gradient( rgba(30, 30, 30), rgb(255, 255, 255));
+    z-index: -4;
+} */
+
+#main-wrapper {
+    position: relative;
+    top: 83px;
+    margin: auto;
+    width: 80%;
+}
+
+#main-info-buttons {
+    position: relative;
+    top: 10px;
 }
 
 #main-info {
@@ -138,29 +187,136 @@ hr {
     color: white;
 
     position: relative;
-    top: 83px;
-    border: 3px solid green;
+    top: 111px;
     margin: auto;
-    width: 75%;
+    
 }
 
-#main-info p { margin: 10px }
+#main-info p { 
+    margin: 10px;
+    white-space: nowrap;
+}
+
+.registration-wrapper {
+    top: 95px;
+    position: relative;
+    margin: auto;
+    width: 273px;
+
+    border: 1px solid rgba(119, 119, 119, 0.425);
+    background-color: rgba(83, 80, 80, 0.226);
+    border-radius: 10px;
+}
+
+.registration-form {
+    top: 27px;
+    position: relative;
+    margin: auto;
+}
+
+form input[type="text"] {
+    display: block;
+    margin: 10px auto;
+    font-size: 14px;
+    width: 210px;
+    border-radius: 3px;
+    height: 15px;
+    padding: 10px;
+    
+    border: none;
+}
+
+form input[type="text"]:focus{
+    outline: none;
+    box-shadow: 0 0 0 1.5px hsla(182, 100%, 57%, 0.74);
+    background: hsl(0, 0%, 95%);
+}
+
+form .submit-btn {
+    width: 230px;
+    top: 9px;
+}
+
+.registration-wrapper .registration-link {
+    top: 22px;
+}
+
+#registration-wrapper-signup {
+    height: 363px;
+}
+
+#registration-wrapper-login {
+    height: 323px;
+}
+
 
 /* Breakpoints */
 
-@media only screen and (max-width: 550px) {
+
+@media only screen and (max-width: 608px) {
+    .website-title {
+        left: 0px;
+    }
+    .top-line {
+        width: 370px;
+    }
+    #main-wrapper{
+        top: 20px;
+    }
+}
+
+@media only screen and (max-width: 488px) {
+    .top-line {
+        width: 100%;
+    }
     .website-title h1 {
-        font-size: 20vw;
+        font-size: 15.6vw;
     }
     #main-info {
-        font-size: 5vw;
-        color: white;
+        font-size: 3.75vw;
+    }
+    .submit-btn, #signin-txt {
+        width: 65.5%;   
+    }
+    .about {
+        font-size: 2.79vw;
+    }
+}
+
+@media only screen and (max-width: 455px) {
+    .website-title {
+        font-size: 351.18px;
+    }
+    #main-info {
+        font-size: 1.07em;
+    }
+    .submit-btn, #signin-txt {
+        width: 230px;   
+    }
+    .about {
+        font-size: 12.69px;
     }
 }
 
 @media only screen and (max-width: 350px) {
     #main-info {
-        font-size: 5vw;
-        color: white;
+        font-size: 4.87vw;
+    }
+    .submit-btn, .registration-link {
+        width: 86%;
+        font-size: 3.95vw;
+    }
+    .about {
+        font-size: 3.6vw;
+    }
+}
+
+
+@media only screen and (max-width: 350px) {
+    #main-info {
+        display: none;
+    }
+    .signature {
+        display: block;
     }
 }

@@ -1,14 +1,28 @@
-<h1> Welcome to Album Art! </h1>
-
-<% if flash.has?(:login_error) %>
-    <p><%= flash[:login_error] %></p>
-<% end %>
-
-<form method="POST" action="/login">
-    <input type="text" name="username" placeholder="Username"><br><br>
-    <input type="text" name="password" placeholder="Password"><br><br>
-    <input type="submit" value="Log In" id="login">
-</form>
-
-<br>
-<a href='/signup'>Sign Up</a>
+<div class="website-image">
+  <div class="registration-wrapper" id="registration-wrapper-login">
+    <header class="website-title">
+      <div class="website-title-width">
+        <h1 class="registration-title">Album Art</h1>
+      </div>
+    </header>
+    <main>
+      <section class="registration-msg-countainer">
+        <% if flash.has?(:login_error) %>
+          <ul>
+            <% flash[:login_error].each do |error| %>
+              <li class="registration-msg-font"><%= error %>
+            <% end %>
+          </ul>
+        <% end %>
+      </section>
+      <section class="registration-form">
+        <form method="POST" action="/login">
+            <input type="text" name="username" placeholder="Username">
+            <input type="text" name="password" placeholder="Password">
+            <input type="submit" value="Log In" class= "submit-btn">
+        </form>
+        <a class= "registration-link" href='/signup' >Sign Up</a>
+      </section>
+    </main>
+  </div>
+</div>

@@ -28,7 +28,7 @@ class AlbumsController < ApplicationController
 
         @user.preferred_songs = [] if @user.preferred_songs.nil?
         @preferred_song_ids = JSON.parse(@user.preferred_songs)
-        binding.pry
+
         erb :'/albums/edit'
     end
 
