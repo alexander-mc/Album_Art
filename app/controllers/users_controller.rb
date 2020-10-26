@@ -2,8 +2,6 @@ class UsersController < ApplicationController
 
     # CREATE
 
-    # READ
-
     get '/signup' do
         redirect to '/albums' if Helpers.is_logged_in?(session)
         erb :'/users/signup'
@@ -21,6 +19,8 @@ class UsersController < ApplicationController
         session[:user_id] = user.id
         redirect to '/auth/spotify'
     end
+
+    # READ
 
     get '/login' do
         redirect to '/albums' if Helpers.is_logged_in?(session)

@@ -1,10 +1,7 @@
-require 'rack-flash'
-
 class ApplicationController < Sinatra::Base
 
-    configure do # What is the purpose of this, since no ENV is passed through as an argument?
+    configure do
         set :views, 'app/views'
-        set :public_folder, 'public' # What does this do?
         set :sessions, true
         set :session_secret, ENV["SESSION_SECRET"]
     end

@@ -41,6 +41,7 @@ body, html {
 
     background-size: 100%;
     background-repeat: repeat;
+
     /* Shows the gradient as a text color */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
@@ -57,8 +58,6 @@ body, html {
     font-size: 4.75em;
     top: 101.5px;
     left: -3px;
-    /* font-size: 6.25em; */
-    /* left: -12px; */
 }
 
 .website-title-width {
@@ -82,7 +81,6 @@ hr {
 .top-line {
     top: 115.4px;
     width: 480px;
-    /* background: white; */
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(218, 216, 216, 0.87), rgba(0, 0, 0, 0));
 }
 
@@ -93,7 +91,6 @@ hr {
 } */
 
 .submit-btn, .registration-link{
-    /*font-family: 'main-info', sans-serif;*/
     font-family: 'buttons', sans-serif;
     color: #fff;
     font-size: .86em;
@@ -107,7 +104,6 @@ hr {
     padding: .52em;
     width: 248px;                
     margin: auto;
-    /* margin-bottom: 10px; */
     text-align: center;
     position: relative;
     top: 124px;
@@ -128,7 +124,6 @@ hr {
 }
 
 .submit-btn:active {
-    /* font-size: 1rem; */
      transform: scale(.97);
 }
 
@@ -154,11 +149,6 @@ hr {
     width: 25%;
     white-space: nowrap;
 }    
-
-/* #main-background{
-    background-image: linear-gradient( rgba(30, 30, 30), rgb(255, 255, 255));
-    z-index: -4;
-} */
 
 #main-wrapper {
     position: relative;
@@ -216,7 +206,6 @@ form input[type="text"], form input[type="password"] {
     border-radius: 3px;
     height: 15px;
     padding: 10px;
-    
     border: none;
 }
 
@@ -230,7 +219,6 @@ form .submit-btn {
     width: 230px;
     top: 0px;
     outline: none;
-    /* margin-bottom: 10px; */
 }
 
 .registration-wrapper .registration-link {
@@ -276,14 +264,11 @@ form .submit-btn {
 #setup-wrapper {
     margin-top: 55px;
     width: 477px;
-    /* height: 458px; */
     padding: 13px 17px;
 }
 
 .application-wrapper .welcome {
     display: flow-root;
-    /* margin-top: 12px;
-    margin-right: 17px; */
 }
 
 .application-wrapper .username-txt {
@@ -291,7 +276,6 @@ form .submit-btn {
     float: right;
     font-family: "main-info", sans-serif;
     font-size: 16px;
-    /* font-weight: 600; */
     color: rgb(250, 250, 250);
     letter-spacing: 1px;
     padding: 6px;
@@ -323,7 +307,6 @@ form .submit-btn {
 }
 
 .logout-btn:active {
-    /* font-size: 1rem; */
      transform: scale(.97);
 }
 
@@ -362,7 +345,6 @@ form .submit-btn {
 #songs-available p {
     font-size: 17px;
     margin: 21px 8px 7px 8px;
-    /* margin: 21px 25px 7px 25px; */
     border: 1px solid rgba(204, 204, 204, 0.582);
     border-radius: 3px;
     padding: 7px;
@@ -407,7 +389,6 @@ input#columns, input#rows {
 
 input#setup-submit-btn {
     margin-top: 16px;
-    /* margin-bottom: 17px; */
     width: 156px;
     padding: 8px;
 }
@@ -468,7 +449,6 @@ input#setup-submit-btn:hover, input#edit-submit-btn:hover {
 
 .background-img2 {
     background: linear-gradient(to right, #141414, #313435);
-    /* height: 575px; */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -489,7 +469,6 @@ input#setup-submit-btn:hover, input#edit-submit-btn:hover {
 
 #edit-wrapper {
     margin-top: 55px;
-    /* width: 85%; */
     width: 655px;
     padding-bottom: 16px;
 }
@@ -547,7 +526,6 @@ input#setup-submit-btn:hover, input#edit-submit-btn:hover {
 
 #edit-wrapper nav a:hover {
     color: white;
-    /* font-weight: bold; */
 }
 
 input#edit-submit-btn {
@@ -555,14 +533,12 @@ input#edit-submit-btn {
     margin-bottom: 16px;
     width: 350px;
     padding: 5px;
-    /* background-color: rgb(52, 63, 62); */
-    /* background-color: rgba(74, 76, 76) */
+
     background-color: rgb(85, 85, 85);
     color: rgb(221, 218, 218);
     border: 1px solid rgba(204, 204, 204, 0.582);
     z-index: 1;
     
-    /* color: black; */
     font-size: 17px;
     font-weight: 100;
     letter-spacing: .7px;
@@ -576,7 +552,6 @@ input#edit-submit-btn:hover {
 }
 
 #edit-message-box .message-box {
-    /* background-color: rgba(239, 241, 113, 0.884); */
     background-color: rgba(239, 241, 113, 0.884);
     border: 1px solid rgba(204, 204, 204, 0.356);
     border-radius: unset;
@@ -593,16 +568,8 @@ input#edit-submit-btn:hover {
     width: 100%;
 }
 
-/* #edit-message-box #edit-selection-error-txt {
-    margin: 0px auto;
-    margin-top: 12px;
-    padding: 7px 0px;
-    width: 358px;
-} */
-
 .edit-songs-grid {
     display: grid;
-    /* grid-template-rows: auto; */
     grid-template-columns: 52px 80px 71% auto;
 }
 
@@ -659,8 +626,6 @@ input[type="checkbox"] {
 
 #albums-wrapper {
     margin-top: 31px;
-    /* width: 85%; */
-    /* width: 600px; */
     width: 90%;
     padding: 15px 17px 10px 16px;
 }
@@ -671,17 +636,11 @@ table.albums-grid {
 
 table.albums-grid img {
     width: 100%;
-    /* height: auto; */
 }
 
 #albums-nav {
     display: grid;
-
     grid-template-columns: auto 126px 103px 102px;
-    /* grid-template-columns: auto 109px 94px 91px; */
-    /* grid-template-columns: 149px auto auto 99px; */
-    /* grid-template-columns: 160px auto 89px 100px; */
-
     align-items: center;
 }
 
@@ -708,9 +667,6 @@ table.albums-grid img {
     color: rgba(212, 209, 209, 0.932);
     font-family: "main-info", sans-serif;
     font-size: 18px;
-
-    /* width: 100%;
-    display: inline-block; */
 }
 
 .change-layout-txt a:hover, .edit-songs-txt a:hover {
@@ -759,6 +715,23 @@ img.album-cover:hover {
     }
     #main-wrapper{
         top: 20px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    #albums-nav p, .change-layout-txt a, .edit-songs-txt a {
+        font-size: 3.1vw;
+    }
+    #albums-nav .logout-btn a {
+        font-size: 2.4vw;
+    }
+    #albums-nav .logout-btn {
+        font-size: 3.1vw;
+        width: 17vw;
+        padding: 0.59vw 0vw;
+    }
+    #albums-nav {
+        grid-template-columns: auto 25vw 20vw 18vw;
     }
 }
 

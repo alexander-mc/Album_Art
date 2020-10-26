@@ -36,12 +36,6 @@ class SetupsController < ApplicationController
         redirect to '/setup'
     end
 
-    # READ
-
-
-    # UPDATE
-
-
     # DELETE
 
 end

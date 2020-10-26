@@ -8,7 +8,7 @@ function playPause(id) {
     } 
 
 document.addEventListener('play', function(e) {
-    // get all <audio> tag elements in the page.
+    // Get all <audio> tag elements on the page
     var allAudios = document.getElementsByTagName('audio');
     // Iterate through all players and pause them, except for
     // the one who fired the "play" event ("target")
