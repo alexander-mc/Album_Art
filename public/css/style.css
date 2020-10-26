@@ -26,7 +26,7 @@ body, html {
     position: relative;
 }
 
-.website-title h1 {
+.website-title h1, #albums-wrapper header h1 {
     font-family: 'website-title', sans-serif;
     font-weight: normal;
 
@@ -62,7 +62,7 @@ body, html {
 }
 
 .website-title-width {
-    /* Adjussts background color to make title more yellow */
+    /* Adjusts background color to make title more yellow */
     width: 75%;
     margin: auto;
 }
@@ -658,11 +658,11 @@ input[type="checkbox"] {
 }
 
 #albums-wrapper {
-    margin-top: 40px;
+    margin-top: 31px;
     /* width: 85%; */
     /* width: 600px; */
     width: 90%;
-    padding: 12px 15px 6px 14px;
+    padding: 15px 17px 10px 16px;
 }
 
 table.albums-grid {
@@ -677,8 +677,9 @@ table.albums-grid img {
 #albums-nav {
     display: grid;
 
+    grid-template-columns: auto 126px 103px 102px;
+    /* grid-template-columns: auto 109px 94px 91px; */
     /* grid-template-columns: 149px auto auto 99px; */
-    grid-template-columns: auto 109px 94px 91px;
     /* grid-template-columns: 160px auto 89px 100px; */
 
     align-items: center;
@@ -706,7 +707,7 @@ table.albums-grid img {
     text-decoration: none;
     color: rgba(212, 209, 209, 0.932);
     font-family: "main-info", sans-serif;
-    font-size: 16px;
+    font-size: 18px;
 
     /* width: 100%;
     display: inline-block; */
@@ -719,9 +720,31 @@ table.albums-grid img {
 }
 
 #albums-wrapper header h1 {
-    margin-top: 19px;
-    margin-bottom: 8px;
+    margin-top: 28px;
+    margin-bottom: 19px;
+
+    font-size: 6.2vw;
 }
+
+#albums-title-width {
+    width: 50vw;
+    margin: auto;
+}
+
+#albums-nav p {
+    font-size: 18px;
+}
+
+#albums-nav .logout-btn a {
+    font-size: 13.5px;
+}
+
+#albums-nav .logout-btn {
+    padding: 3px 2px;
+    width: 89px;
+}
+
+
 
 /* Breakpoints */
 
