@@ -1,21 +1,18 @@
 # Album Art
 
-This program is for [Spotify](www.spotify.com) users and primarily serves two purposes:
+This program is for [Spotify](www.spotify.com) users and serves the following purposes:
 
 1. To store data on a user's song history. Accessing information about what a user has listened to can be challenging and is not instantaneous.
 
 2. To prototype how an Apple-like, Album Artwork screen saver could function for Spotify users.
 
-
 ## Features
 
-Album Art contains the following features: 
+* Stores information on recently played Spotify songs, such as album cover images, song titles, and artist names. Recently played songs are accessed via Spotify's API and the Ruby wrapper, [RSpotify](https://github.com/guilhermesad/rspotify). Since Spotify's [Recently Played API](https://developer.spotify.com/documentation/web-api/reference-beta/) only allows users to retrieve information on the past 50 songs, only the most recently played 50 songs can be stored at a time. Thus, users seeking to track their song history beyond 50 songs should regularly log into the program and click 'refresh'.
 
-1. Stores information on recently played Spotify songs, such as album cover images, song titles, and artist names. Recently played songs are accessed via Spotify's API and the Ruby wrapper, [RSpotify](https://github.com/guilhermesad/rspotify). Since Spotify's [Recently Played API](https://developer.spotify.com/documentation/web-api/reference-beta/) only allows users to retrieve information on the past 50 songs, only the most recently played 50 songs can be stored at a time. Thus, users seeking to track their song history beyond 50 songs should regularly log into the program and click 'refresh'.
+* Displays the album covers for recently played songs in a clean, customizeable view. Users decide which covers to showcase, along with the number of rows and columns of the grid on which to display the songs.
 
-2. Displays the album covers for recently played songs in a clean, customizeable view. Users decide which covers to showcase, along with the number of rows and columns of the grid on which to display the songs.
-
-3. Plays 30-second song previews. Users can preview songs by clicking on the album covers in the program.
+* Plays 30-second song previews. Users can preview songs by clicking on the album covers in the program.
 
 ## Preview
 
@@ -31,16 +28,21 @@ Album Art contains the following features:
 
 1. Register a Spotify application and obtain a client ID and client secret. Follow this guide from Spotify for information on how to do this: https://developer.spotify.com/documentation/general/guides/app-settings.
 
-2. Generate a secure session secret. You can use the Rake task in the program. Just open the program from your terminal and type in the command 'rake generate:session_secret'.
+2. Generate a secure session secret. You can use the Rake task in the program. Just open the program from your terminal and type in the following command: 
+
+```
+rake generate:session_secret'
+```
 
 3. Create a file titled '.env' in the program's root directory with the following information (replace the 'X's with information from the previous steps):
 
+```
 export CLIENT_ID=XXXXXXXXXXXXXXXXXXXXXXX
 export CLIENT_SECRET=XXXXXXXXXXXXXXXXXXX
 export SESSION_SECRET=XXXXXXXXXXXXXXXXXX
+```
 
 4. Run 'bundle install' to install the necessary Ruby gems and you're good to go!
-
 
 ## Contributing
 
