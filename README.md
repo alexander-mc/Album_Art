@@ -19,13 +19,13 @@ Album Art contains the following features:
 
 ## Preview
 
-![Welcome Screen](/public/screenshots/01_Welcome.png)
-![Sign Up Screen](/public/screenshots/02_Sign_Up.png)
-![Log In Screen](/public/screenshots/03_Log_In.png)
-![Set Up Screen](/public/screenshots/04_Set_Up.png)
-![Select Songs Screen 1](/public/screenshots/05_Edit_1.png)
-![Select Songs Screen 2](/public/screenshots/05_Edit_2.png)
-![Display Album Covers Screen](/public/screenshots/06_Display.png)
+![Welcome Screen](/public/screenshots/01_Welcome.png)  
+![Sign Up Screen](/public/screenshots/02_Sign_Up.png)  
+![Log In Screen](/public/screenshots/03_Log_In.png)  
+![Set Up Screen](/public/screenshots/04_Set_Up.png)  
+![Select Songs Screen 1](/public/screenshots/05_Edit_1.png)  
+![Select Songs Screen 2](/public/screenshots/05_Edit_2.png)  
+![Display Album Covers Screen](/public/screenshots/06_Display.png)  
 
 ## Useage
 
