@@ -6,23 +6,25 @@
       </div>
     </header>
     <main>
-      <section class="registration-msg-countainer">
+      <section id="message-box-signup">
         <% if flash.has?(:signup_error) %>
-          <ul>
+          <div class="message-box">
+            <ul>
             <% flash[:signup_error].each do |error| %>
-              <li class="registration-msg-font"><%= error %>
+              <li><%= error %>
             <% end %>
-          </ul>
+            </ul>
+          </div>
         <% end %>
       </section>
       <section class="registration-form">
         <form method="POST" action="/signup">
-            <input type="text" name="username" placeholder="Username">
+            <input type="text" name="username" placeholder="Username" class="username-input">
             <input type="text" name="password" placeholder="Password">
             <input type="text" name="password_confirmation" placeholder="Re-Enter Password">
-            <input type="submit" value="Sign Up" class= "submit-btn">
+            <input type="submit" value="SIGN UP" class= "submit-btn">
         </form>
-        <a class= "registration-link" href='/login' >Log In</a>
+        <a class= "registration-link" href='/login' >LOG IN</a>
       </section>
     </main>
   </div>

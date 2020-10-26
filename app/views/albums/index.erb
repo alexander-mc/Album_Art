@@ -1,30 +1,42 @@
-<header>
-    <h2><%= @user.username %> | Check out your covers!</h2>
-    <nav>
-        <a href="/setup">Change layout</a> | 
-        <a href="/albums/edit">Edit songs</a> | 
-        <a href="/logout">Log Out</a>
-    </nav>
-</header>
-<br><br>
-<main>
-    <table>
-      <% @preferred_songs.reverse.each_slice(@user.setup.columns) do |row| %>   
-        <tr>
-          <% row.each do |s| %>
-            <td>
-                <%# Temp workaround Spotify bug %>
-                <% if @user.id == 1 %>
-                    <img src="<%= s.album.image %>" onclick="playPause('<%= s.id %>')" alt="album cover">
-                    <audio preload="auto" id="<%= s.id %>">
-                            <source src="<%= s.preview_url %>" />
-                    </audio>
-                <% else %>
-                    <a href="<%= s.external_url %>" target="_blank"><img src="<%= s.album.image %>" alt="album cover"></a>
-                <% end %>                    
-            </td>
+<div class="background-img2" id="albums-background-img2">
+  <div class="application-wrapper" id="albums-wrapper">
+    <header>
+      <div class="welcome" id="albums-nav">
+        <div class="username-txt">
+          <p><%= @user.username.upcase %></p>
+        </div>
+        <div class="change-layout-txt">
+          <a href="/setup">Change layout</a>
+        </div>
+        <div class="edit-songs-txt">
+          <a href="/albums/edit">Edit songs</a>
+        </div>
+        <div class="logout-btn">
+          <a href="/logout">LOG OUT</a>
+        </div>
+      </div>
+      <h1>Your Album Art</h1>
+    </header>
+    <main>
+        <table class="albums-grid">
+          <% @preferred_songs.reverse.each_slice(@user.setup.columns) do |row| %>   
+            <tr>
+              <% row.each do |s| %>
+                <td>
+                    <%# Temp workaround Spotify bug %>
+                    <% if @user.id == 1 %>
+                        <img src="<%= s.album.image %>" onclick="playPause('<%= s.id %>')" alt="album cover">
+                        <audio preload="auto" id="<%= s.id %>">
+                                <source src="<%= s.preview_url %>" />
+                        </audio>
+                    <% else %>
+                        <a href="<%= s.external_url %>" target="_blank"><img src="<%= s.album.image %>" alt="album cover"></a>
+                    <% end %>                    
+                </td>
+              <% end %>
+            </tr>
           <% end %>
-        </tr>
-      <% end %>
-    </table>
-</main>
+        </table>
+    </main>
+  </div>
+</div>

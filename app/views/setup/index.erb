@@ -1,31 +1,46 @@
-<p><%= flash[:setup_refresh] if flash.has?(:setup_refresh)%></p>
-
-<h2>Setup the layout</h2>
-
-<p>You have <%= @user.songs.count %> songs available |
-<a href="/setup/refresh">Refresh</a> | <a href="/logout">Log Out</a>
-</p> 
-
-<p><b>The number of columns x number of rows cannot exceed this amount.</b></p>
-
-<form method="POST" action='/setup'>
-
-    <label for="columns">Number of columns: </label>
-    <input type="text" name="columns" id="columns" value="<%= @user.setup.columns if @user.setup %>">
-    <br><br>
-
-    <label for='rows'>Number of rows: </label>
-    <input type="text" name="rows" id="rows" value="<%= @user.setup.rows if @user.setup %>">
-
-    <% if flash.has?(:setup_error) %>
-    <ul>
-        <% flash[:setup_error].each do |error| %>
-            <li><%= error %><br>
-        <% end %>
-    </ul>
-    <% end %>
-
-    <br><br>
-    <input type="submit" value="Submit" id="submit">
-
-</form>
+<div class="background-img2">
+    <div class="application-wrapper" id="setup-wrapper">
+        <header>
+            <div class="welcome">
+                <div class="logout-btn">
+                    <a href="/logout">LOG OUT</a>
+                </div>
+                <div class="username-txt">
+                    <p>WELCOME, <%= @user.username.upcase %></p>
+                </div>
+            </div>
+            <h1>Let's set up</h1>
+        </header>
+        <main id="setup-info">
+            <p>Enter the number of rows and columns you want to display your album covers.</p>
+            <p>Note that the # rows x # columns cannot exceed the number of songs loaded.</p>
+            <div id="songs-available">
+                <p>You have <%= @user.songs.count %> recently played Spotify songs loaded.</p>
+                <a id="refresh-txt" href="/setup/refresh">Refresh</a>
+            </div>
+            <section id="setup-message-box">
+                <% if flash.has?(:setup_refresh) %>
+                    <p class="message-box" id="setup-refresh-txt"><%= flash[:setup_refresh] %></p>
+                <% elsif flash.has?(:setup_error) %>
+                    <div class="message-box" id="setup-error-txt">
+                        <ul>
+                        <% flash[:setup_error].each do |error| %>
+                            <li><%= error %><br>
+                        <% end %>
+                        </ul>
+                    </div>
+                <% end %>
+            </section>
+            <form method="POST" action='/setup' id="setup-form">
+                <div id="setup-form-grid">
+                    <label for="columns">Number of columns: </label>
+                    <input type="text" name="columns" id="columns" value="<%= @user.setup.columns if @user.setup %>">
+                    <label for='rows'>Number of rows: </label>
+                    <input type="text" name="rows" id="rows" value="<%= @user.setup.rows if @user.setup %>">
+                </div>
+                <input type="submit" value="SUBMIT" class="submit-btn" id="setup-submit-btn">
+            </form>
+        </main>
+    </div>
+    <footer></footer>
+</div>

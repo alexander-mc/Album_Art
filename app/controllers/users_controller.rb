@@ -37,7 +37,7 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             redirect to '/auth/spotify'
         else
-            flash[:login_error] = "Sorry, we could not find that username/password. Please try again."
+            flash[:login_error] = "Sorry, we could not find that username and/or password. Please try again."
             redirect to '/login'
         end
 
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
 
     get '/logout' do
         session.clear if Helpers.is_logged_in?(session)
-        redirect to '/login'
+        redirect to '/'
     end
 
     # UPDATE

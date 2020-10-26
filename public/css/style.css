@@ -9,15 +9,17 @@
 }
 */
 
-body {
+body, html {
     background-color: rgb(30, 30, 30);
+    height: 100%;
+    margin: 0;
 }
 
 .website-image {
     background-image:
         linear-gradient(rgba(0, 0, 0, 0.75), rgba(30, 30, 30)),
         url('../images/album-art-med.png');
-    height: 500px;
+    height: 550px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -60,24 +62,14 @@ body {
 }
 
 .website-title-width {
-    /* Remove any overlap with .website-title h1 */
-    position: relative;
+    /* Adjussts background color to make title more yellow */
     width: 75%;
-    top: 21px;
-    left: -3px;
     margin: auto;
-    background: linear-gradient(to right, hsl(192, 100%, 64%),hsla(59, 94%, 67%, 0.945)); 
-    background-size: 100%;
-    background-repeat: repeat;
-    /* Shows the gradient as a text color */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    -moz-background-clip: text;
-    -moz-text-fill-color: transparent;
 }
 
 .website-title h1.registration-title {
-    font-size: 3em;
+    font-size: 3.24em;
+    left: -2px;
 }
 
 hr {
@@ -102,7 +94,7 @@ hr {
 
 .submit-btn, .registration-link{
     /*font-family: 'main-info', sans-serif;*/
-    font-family: 'buttons';
+    font-family: 'buttons', sans-serif;
     color: #fff;
     font-size: .86em;
     font-weight: 900;
@@ -115,9 +107,10 @@ hr {
     padding: .52em;
     width: 248px;                
     margin: auto;
+    /* margin-bottom: 10px; */
     text-align: center;
     position: relative;
-    top: 118px;
+    top: 124px;
     background-color: rgb(72, 190, 161);
     border-radius: 3px;
     border: none;
@@ -157,7 +150,7 @@ hr {
     margin: auto;
     text-align: center;
     position: relative;
-    top: 132px;
+    top: 138px;
     width: 25%;
     white-space: nowrap;
 }    
@@ -187,7 +180,7 @@ hr {
     color: white;
 
     position: relative;
-    top: 111px;
+    top: 115px;
     margin: auto;
     
 }
@@ -201,7 +194,8 @@ hr {
     top: 95px;
     position: relative;
     margin: auto;
-    width: 273px;
+    width: 271px;
+    padding: 37px 12px;
 
     border: 1px solid rgba(119, 119, 119, 0.425);
     background-color: rgba(83, 80, 80, 0.226);
@@ -209,14 +203,14 @@ hr {
 }
 
 .registration-form {
-    top: 27px;
-    position: relative;
     margin: auto;
+    margin-top: 14px;
 }
 
 form input[type="text"] {
     display: block;
-    margin: 10px auto;
+    margin: auto;
+    margin-bottom: 10px;
     font-size: 14px;
     width: 210px;
     border-radius: 3px;
@@ -229,29 +223,507 @@ form input[type="text"] {
 form input[type="text"]:focus{
     outline: none;
     box-shadow: 0 0 0 1.5px hsla(182, 100%, 57%, 0.74);
-    background: hsl(0, 0%, 95%);
+    background: hsl(189, 41%, 97%);
 }
 
 form .submit-btn {
     width: 230px;
-    top: 9px;
+    top: 0px;
+    outline: none;
+    /* margin-bottom: 10px; */
 }
 
 .registration-wrapper .registration-link {
-    top: 22px;
+    top: 4px;
 }
 
 #registration-wrapper-signup {
-    height: 363px;
+    height: auto;
 }
 
 #registration-wrapper-login {
-    height: 323px;
+    height: auto;
 }
 
+.message-box {
+    background-color: hsl(0, 0%, 97%);
+    padding: 12px 12px;
+    margin: 13px 10px 15px 10px;
+    border-radius: 3.5px;
+}
+
+#message-box-login p, #message-box-signup ul {
+    font-family: Arial;
+    font-size: 14px;
+}
+
+#message-box-login p {
+    text-align: center;
+    margin: 12px 2px 15px 2px;
+}
+
+#message-box-signup ul {
+    padding: 0 0 0 18px;
+    margin: 0 auto;
+}
+
+.application-wrapper {
+    margin: 0 auto;
+    border-radius: 20px;
+    border: 2px solid rgba(70, 238, 230, 0.39);
+}
+
+#setup-wrapper {
+    margin-top: 55px;
+    width: 477px;
+    /* height: 458px; */
+    padding: 13px 17px;
+}
+
+.application-wrapper .welcome {
+    display: flow-root;
+    /* margin-top: 12px;
+    margin-right: 17px; */
+}
+
+.application-wrapper .username-txt {
+    display: inline-block;
+    float: right;
+    font-family: "main-info", sans-serif;
+    font-size: 16px;
+    /* font-weight: 600; */
+    color: rgb(250, 250, 250);
+    letter-spacing: 1px;
+    padding: 6px;
+    margin-right: 5px;
+}
+
+.application-wrapper p {
+    margin: 0;
+    height: 100%;
+    text-align: center;
+}
+
+.logout-btn {
+    float: right;
+    margin: 0px auto;
+    padding: 3px 1px;
+    width: 80px;
+    background-color: rgba(177, 177, 177, 0.219);
+    border-radius: 3px;
+
+    transition: all 0.4s;
+    
+    text-align: center;
+    border: 1px solid rgba(194, 194, 194, 0.274);
+}
+
+.logout-btn:hover {
+    background-color: rgba(236, 236, 236, 0.39);
+}
+
+.logout-btn:active {
+    /* font-size: 1rem; */
+     transform: scale(.97);
+}
+
+.logout-btn a {
+    font-size: 13px;
+    font-family: buttons, sans-serif;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.76);
+    text-decoration: none;
+    letter-spacing: 2px;
+    margin-left: 1.5px;
+}
+
+.logout-btn a:hover {
+    color: rgba(255, 255, 255, 0.925);
+}
+
+.application-wrapper h1 {
+    margin: auto;
+    margin-top: 17px;
+    margin-bottom: 12px;
+    text-align: center;
+    font-family: main-info, sans-serif;
+    font-size: 47px;
+    color: rgba(175, 175, 175, 0.521);
+}
+
+#setup-info p, a#refresh-txt, form label {
+    font-family: main-info, sans-serif;
+    font-size: 17px;
+    color: rgb(250, 250, 250);
+    margin: 10px 65px;
+    letter-spacing: .4px;
+}
+
+#songs-available p {
+    font-size: 17px;
+    margin: 21px 8px 7px 8px;
+    /* margin: 21px 25px 7px 25px; */
+    border: 1px solid rgba(204, 204, 204, 0.582);
+    border-radius: 3px;
+    padding: 7px;
+    font-weight: 600;
+    background-color: rgba(131, 182, 179, 0.219);
+}
+
+a#refresh-txt {
+    text-decoration: none;
+    font-size: 15px;
+    margin: auto;
+    width: 15%;
+    margin-top: 8.5px;
+    display: block;
+    text-align: center;
+    color: hsla(61, 76%, 59%, 0.959);
+}
+
+a#refresh-txt:hover {
+    color: hsl(61, 92%, 64%);
+}
+
+#setup-form-grid {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+    margin-top: 11px;
+}
+
+#setup-form label[for="columns"], #setup-form label[for="rows"] {
+    margin: 4px -35px 4px 105px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+input#columns, input#rows {
+    width: 37px;
+    font-size: 16px;
+    text-align: center;
+    margin: 4px 0px 4px 48px;
+    padding: 9px 15px;
+}
+
+input#setup-submit-btn {
+    margin-top: 16px;
+    /* margin-bottom: 17px; */
+    width: 156px;
+    padding: 8px;
+}
+
+input#setup-submit-btn, input#edit-submit-btn {
+    color: rgba(255, 255, 255, 0.877);
+    background-color: rgba(133, 151, 147, 0.548);
+    border: 1px solid rgba(194, 194, 194, 0.274);
+}
+
+input#setup-submit-btn:hover, input#edit-submit-btn:hover {
+    background-color: rgb(61, 155, 131);
+    color: rgba(255, 255, 255, 0.76);
+}
+
+#setup-message-box .message-box {
+    background-color: rgba(239, 241, 113, 0.884);
+    border: 1px solid rgba(204, 204, 204, 0.356);
+    
+    font-family: Arial;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+
+    font-size: 16px;
+    padding: 3px 0px;
+    margin: 0px 185px;
+    margin-top: 14px;
+}
+
+#setup-message-box #setup-error-txt {
+    margin: 0px auto;
+    margin-top: 12px;
+    padding: 7px 0px;
+    width: 358px;
+}
+
+#setup-error-txt ul {
+    margin: 0px;
+}
+
+.about {
+    margin: auto;
+    text-align: center;
+    position: relative;
+    top: 159px;
+
+    font-family: main-info, sans-serif;
+    font-size: 0.85em;
+    letter-spacing: 3.8px;
+    color: white;
+    white-space: nowrap;
+}
+
+#setup-wrapper .about {
+    top: 0px;
+    letter-spacing: 3.3px;
+}
+
+.background-img2 {
+    background: linear-gradient(to right, #141414, #313435);
+    /* height: 575px; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    display: flow-root;
+    height: 100%;
+    /* height: 600px; */
+    /* flex-direction: column; */
+}
+
+/* #setup-wrapper {
+    flex: 1 0 auto;
+}
+
+.footer-regular {
+    flex-shrink: 0;
+} */
+
+#edit-wrapper {
+    margin-top: 55px;
+    /* width: 85%; */
+    width: 655px;
+    padding-bottom: 16px;
+}
+
+#edit-wrapper .welcome {
+    margin-top: 16px;
+    margin-right: 23px;
+}
+
+#edit-wrapper h1 {
+    margin-top: 13px;
+    margin-bottom: 19px;
+    font-size: 47px;
+}
+
+#edit-wrapper header{
+    display: unset;
+}
+
+#edit-wrapper nav {
+    width: 100%;
+    margin: auto;
+    background-color: rgba(51, 63, 62);    
+    border-top: 1px solid rgba(204, 204, 204, 0.582);
+    border-bottom: 1px solid rgba(204, 204, 204, 0.582);
+    border-radius: 0px;
+}
+
+#edit-wrapper .nav-width {
+    width: 85%;
+    margin: auto;
+    padding: 0px;
+
+    font-size: 0;
+    text-align: justify;
+}
+
+#edit-wrapper .nav-width:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+
+#edit-wrapper .nav-width div {
+    display: inline-block;
+    padding: 9px 0px;
+}
+
+#edit-wrapper nav a {
+    text-decoration: none;
+    color: rgba(212, 209, 209, 0.932);
+    font-family: "main-info", sans-serif;
+    font-size: 16px;
+}
+
+#edit-wrapper nav a:hover {
+    color: white;
+    /* font-weight: bold; */
+}
+
+input#edit-submit-btn {
+    margin-top: 18px;
+    margin-bottom: 16px;
+    width: 350px;
+    padding: 5px;
+    /* background-color: rgb(52, 63, 62); */
+    /* background-color: rgba(74, 76, 76) */
+    background-color: rgb(85, 85, 85);
+    color: rgb(221, 218, 218);
+    border: 1px solid rgba(204, 204, 204, 0.582);
+    z-index: 1;
+    
+    /* color: black; */
+    font-size: 17px;
+    font-weight: 100;
+    letter-spacing: .7px;
+    position: sticky;
+    top: 16px;
+}
+
+input#edit-submit-btn:hover {
+    background-color: rgb(61, 155, 131);
+    color: white;
+}
+
+#edit-message-box .message-box {
+    /* background-color: rgba(239, 241, 113, 0.884); */
+    background-color: rgba(239, 241, 113, 0.884);
+    border: 1px solid rgba(204, 204, 204, 0.356);
+    border-radius: unset;
+    
+    font-family: Arial;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    
+    padding: 5px 0px;
+    margin: auto;
+    margin-top: 7px;
+    margin-bottom: -10px;
+    width: 100%;
+}
+
+/* #edit-message-box #edit-selection-error-txt {
+    margin: 0px auto;
+    margin-top: 12px;
+    padding: 7px 0px;
+    width: 358px;
+} */
+
+.edit-songs-grid {
+    display: grid;
+    /* grid-template-rows: auto; */
+    grid-template-columns: 52px 80px 71% auto;
+}
+
+.img-delete-btn{
+    width: 20px;
+    height: auto;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.39);
+    margin: 10px 10px 10px 11px;
+}
+
+.img-album-cover {
+    width: 100%;
+    height: auto;
+}
+
+.col-1, .col-4 {
+    justify-self: center;
+    align-self: center;
+}
+
+.col-3 {
+    display: grid;
+    grid-template: auto / auto;
+    align-self: center;
+    grid-row-gap: 6px;
+    margin-top: 0px;
+    margin-left: 18px;
+}
+
+.col-3 p{
+    text-align: left;
+    font-family: "main-info", sans-serif;
+    font-size: 14.7px;
+    color: white;
+}
+
+#edit-wrapper hr {
+    height: 1px;
+    background-color: rgba(129, 128, 128, 0.747);
+    border: 0;
+    margin: 10px 10px 10px 10px
+}
+
+#edit-background-img2, #albums-background-img2 {
+    background-image: none;
+}
+
+#edit-wrapper hr:last-of-type {
+    display: none;
+}
+
+#albums-wrapper {
+    margin-top: 40px;
+    /* width: 85%; */
+    /* width: 600px; */
+    width: 90%;
+    padding: 12px 15px 6px 14px;
+}
+
+table.albums-grid {
+    margin: auto;
+}
+
+table.albums-grid img {
+    width: 100%;
+    /* height: auto; */
+}
+
+#albums-nav {
+    display: grid;
+
+    /* grid-template-columns: 149px auto auto 99px; */
+    grid-template-columns: auto 109px 94px 91px;
+    /* grid-template-columns: 160px auto 89px 100px; */
+
+    align-items: center;
+}
+
+#albums-nav .username-txt {
+    padding: 0px;
+    margin: 0px;
+}
+
+#albums-nav p {
+    text-align: left;
+}
+
+#albums-nav .logout-btn {
+    margin: 0px;
+    justify-self: end;
+}
+
+#albums-nav .change-layout-txt, #albums-nav .edit-songs-txt {
+    text-align: center;
+}
+
+.change-layout-txt a, .edit-songs-txt a {
+    text-decoration: none;
+    color: rgba(212, 209, 209, 0.932);
+    font-family: "main-info", sans-serif;
+    font-size: 16px;
+
+    /* width: 100%;
+    display: inline-block; */
+}
+
+.change-layout-txt a:hover, .edit-songs-txt a:hover {
+    color: white;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(72, 190, 161);
+}
+
+#albums-wrapper header h1 {
+    margin-top: 19px;
+    margin-bottom: 8px;
+}
 
 /* Breakpoints */
-
 
 @media only screen and (max-width: 608px) {
     .website-title {
@@ -275,7 +747,7 @@ form .submit-btn {
     #main-info {
         font-size: 3.75vw;
     }
-    .submit-btn, #signin-txt {
+    .submit-btn, #signup-txt {
         width: 65.5%;   
     }
     .about {
@@ -290,7 +762,7 @@ form .submit-btn {
     #main-info {
         font-size: 1.07em;
     }
-    .submit-btn, #signin-txt {
+    .submit-btn {
         width: 230px;   
     }
     .about {

@@ -1,45 +1,68 @@
-<p><%= flash[:albums_refresh] if flash.has?(:albums_refresh) %></p>
-<p><%= flash[:selection_error] if flash.has?(:selection_error) %></p>
+<div class="background-img2" id="edit-background-img2">
+    <div class="application-wrapper" id="edit-wrapper">
+        <header>
+            <div class="welcome">
+                <div class="logout-btn">
+                    <a href="/logout">LOG OUT</a>
+                </div>
+                <div class="username-txt">
+                    <p>WELCOME, <%= @user.username.upcase %></p>
+                </div>
+            </div>
+            <h1>Select <%= @num_songs_needed %> songs</h1>
+            <nav>
+                <div class="nav-width">
+                    <div><a href="/albums/select/first">Select Recent</a></div>
+                    <div><a href="/albums/select/random">Select Random</a></div>
+                    <div><a href="/albums/select/none">Deselect All</a></div>
+                    <div><a href="/setup">Change Layout</a></div>
+                    <div><a href="/albums/refresh">Refresh</a></div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <form method="POST" action="/albums">
+                <input name="_method" value="patch" id="hidden" type="hidden">
 
+                <section id="edit-message-box">
+                    <% if flash.has?(:albums_refresh) %>
+                        <p class="message-box" id="edit-refresh-txt"><%= flash[:albums_refresh] %></p>
+                    <% elsif flash.has?(:selection_error) %>
+                        <p class="message-box" id="edit-selection-error-txt"><%= flash[:selection_error] %></p>
+                    <% end %>
+                </section>
 
-<h2>Select <%= @num_songs_needed %> album covers you want to show off! | Total songs loaded: <%= @user.songs.count %></h2>
+                <input type="submit" value="Validate number of songs and submit" class="submit-btn" id="edit-submit-btn">
 
-<a href="/albums/select/first">Select <%= @num_songs_needed %> most recent</a> | 
-<a href="/albums/select/random">Select <%= @num_songs_needed %> random</a> | 
-<a href="/albums/select/none">Unselect all</a> | 
-<a href="/setup">Change layout</a> |
-<a href="/albums/refresh">Refresh</a> |
-<a href="/logout">Log Out</a>
-<br><br>
+                <% @user.songs.reverse_each do |s| %>
+                    <div class="edit-songs-grid">
+                        <div class="col-1">
+                            <input type="checkbox" name="preferred_song_ids[]" value="<%= s.id %>" <%='checked' if @preferred_song_ids.include?(s.id) %>>
+                        </div>
+                        <div class="col-2">
+                            <%# Disabled song preview on click for all users except BuzzLlightYear %>            
+                            <% if @user.id == 1 %>
+                                <img src="<%= s.album.image %>" onclick="playPause('<%= s.id %>')" alt="album cover">
+                                <audio preload="auto" id="<%= s.id %>">
+                                        <source src="<%= s.preview_url %>" />
+                                </audio>
+                            <% else %>
+                                <img src="<%= s.album.image %>" alt="album cover" class="img-album-cover">
+                            <% end %>
+                        </div>
+                        <div class="col-3">
+                            <div class="col-3-row-1"><p>ALBUM: <%= s.album.title %></p></div>
+                            <div class="col-3-row-2"><p>SONG: <%= s.title %></p></div>
+                            <div class="col-3-row-3"><p>ARTIST(S): <%= s.artists.map { |a| a.name }.join(", ") %></p></div>
+                        </div> 
+                        <div class="col-4">
+                            <a href="/albums/<%= s.id %>/delete"><img class="img-delete-btn" src="/images/delete-btn.png" alt="delete button"></a>
+                        </div>
+                    </div>
+                    <hr>
+                <% end %>
 
-<form method="POST" action="/albums">
-
-    <input name="_method" value="patch" id="hidden" type="hidden">
-    <input type="submit" value="Check number of songs and move on" id="submit">
-    <br><br>
-
-    <% @user.songs.reverse_each do |s| %>
-
-        <input type="checkbox" name="preferred_song_ids[]" value="<%= s.id %>" <%='checked' if @preferred_song_ids.include?(s.id) %>>
-
-        <%# Disabled song preview on click for all users except BuzzLlightYear %>            
-        <% if @user.id == 1 %>
-            <img src="<%= s.album.image %>" onclick="playPause('<%= s.id %>')" alt="album cover">
-
-            <audio preload="auto" id="<%= s.id %>">
-                    <source src="<%= s.preview_url %>" />
-            </audio>
-        <% else %>
-            <img src="<%= s.album.image %>" alt="album cover">            
-        <% end %>
-
-        <%= s.album.title %> | 
-        <%= s.title %> | 
-        <%= s.artists.map { |a| a.name }.join(", ") %>
-        
-        <a href="/albums/<%= s.id %>/delete">Delete</a>
-                
-        <br>
-    <% end %>
-
-</form>
+            </form>
+        </main>
+    </div>
+</div>

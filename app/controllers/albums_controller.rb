@@ -11,7 +11,8 @@ class AlbumsController < ApplicationController
         redirect to '/login' if !Helpers.is_logged_in?(session)
         redirect to '/setup' if @user.setup.nil?
         redirect to '/albums/edit' if @user.preferred_songs.nil?
-        
+        redirect to '/albums/edit' if JSON.parse(@user.preferred_songs).count != (@user.setup.rows * @user.setup.columns)
+
         @preferred_songs = @user.songs.where(id: JSON.parse(@user.preferred_songs))
 
         erb :'/albums/index'

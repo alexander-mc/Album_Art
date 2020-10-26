@@ -31,7 +31,7 @@ class SetupsController < ApplicationController
         redirect to '/login' unless Helpers.is_logged_in?(session)
         
         Helpers.load_songs(session)
-        flash[:setup_refresh] = "Refreshed!"
+        flash[:setup_refresh] = "Done!"
 
         redirect to '/setup'
     end

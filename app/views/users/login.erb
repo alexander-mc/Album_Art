@@ -5,23 +5,17 @@
         <h1 class="registration-title">Album Art</h1>
       </div>
     </header>
-    <main>
-      <section class="registration-msg-countainer">
-        <% if flash.has?(:login_error) %>
-          <ul>
-            <% flash[:login_error].each do |error| %>
-              <li class="registration-msg-font"><%= error %>
-            <% end %>
-          </ul>
-        <% end %>
-      </section>
+    <main id="message-box-login">
+      <% if flash.has?(:login_error) %>
+          <p class="message-box"><%= flash[:login_error] %></p>
+      <% end %>
       <section class="registration-form">
         <form method="POST" action="/login">
-            <input type="text" name="username" placeholder="Username">
+            <input type="text" name="username" placeholder="Username" class="username-input">
             <input type="text" name="password" placeholder="Password">
-            <input type="submit" value="Log In" class= "submit-btn">
+            <input type="submit" value="LOG IN" class= "submit-btn">
         </form>
-        <a class= "registration-link" href='/signup' >Sign Up</a>
+        <a class= "registration-link" href='/signup' >SIGN UP</a>
       </section>
     </main>
   </div>
