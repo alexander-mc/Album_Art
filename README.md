@@ -1,8 +1,8 @@
 # Album Art
 
-This program is for [Spotify](www.spotify.com) users and serves the following purposes:
+This program serves the following purposes:
 
-1. To store data on a user's song history. Accessing information about what a user has listened to can be challenging and is not instantaneous.
+1. To store data on a Spotify user's song history. Accessing information about what a user has listened to can be challenging and is not instantaneous.
 
 2. To prototype how an Apple-like, Album Artwork screen saver could function for Spotify users.
 
@@ -34,7 +34,7 @@ This program is for [Spotify](www.spotify.com) users and serves the following pu
 rake generate:session_secret'
 ```
 
-3. Create a file titled '.env' in the program's root directory with the following information (replace the 'X's with information from the previous steps):
+3. Create a file titled '.env' in the program's root directory with the following (replace the 'X's with information from the previous steps):
 
 ```
 export CLIENT_ID=XXXXXXXXXXXXXXXXXXXXXXX
