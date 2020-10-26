@@ -207,7 +207,7 @@ hr {
     margin-top: 14px;
 }
 
-form input[type="text"] {
+form input[type="text"], form input[type="password"] {
     display: block;
     margin: auto;
     margin-bottom: 10px;
@@ -220,7 +220,7 @@ form input[type="text"] {
     border: none;
 }
 
-form input[type="text"]:focus{
+form input[type="text"]:focus, form input[type="password"]:focus{
     outline: none;
     box-shadow: 0 0 0 1.5px hsla(182, 100%, 57%, 0.74);
     background: hsl(189, 41%, 97%);
@@ -234,7 +234,7 @@ form .submit-btn {
 }
 
 .registration-wrapper .registration-link {
-    top: 4px;
+    top: 12px;
 }
 
 #registration-wrapper-signup {
@@ -744,7 +744,9 @@ table.albums-grid img {
     width: 89px;
 }
 
-
+img.album-cover:hover {
+    cursor: pointer;
+}
 
 /* Breakpoints */
 
