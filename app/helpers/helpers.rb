@@ -5,16 +5,17 @@ class Helpers
     end
 
     def self.is_logged_in?(session)
+        # Logs out users who are logged in but not authenticated
+        session.clear if !!current_user(session) && session[:credentials].nil?
         !!current_user(session)
     end
 
     def self.load_songs(session)
-        
         user = current_user(session)
+
         if User.find(1) == user
             puts "User 1 active. Spotify 'preview_url' currently down. :( Load unsuccessful."
         else
-
             RSpotify::User.new(session[:credentials]).recently_played.reverse_each do |s|
 
                 # Find songs if already persisted in database

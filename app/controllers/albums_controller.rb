@@ -8,7 +8,7 @@ class AlbumsController < ApplicationController
 
         @user = Helpers.current_user(session)
 
-        redirect to '/login' if !Helpers.is_logged_in?(session)
+        redirect to '/' unless Helpers.is_logged_in?(session)
         redirect to '/setup' if @user.setup.nil?
         redirect to '/albums/edit' if @user.preferred_songs.nil?
         redirect to '/albums/edit' if JSON.parse(@user.preferred_songs).count != (@user.setup.rows * @user.setup.columns)
@@ -21,7 +21,7 @@ class AlbumsController < ApplicationController
     # UPDATE
 
     get '/albums/edit' do
-        redirect to '/login' if !Helpers.is_logged_in?(session)
+        redirect to '/' unless Helpers.is_logged_in?(session)
         redirect to '/setup' if Helpers.current_user(session).setup.nil?
 
         @user = Helpers.current_user(session)
@@ -55,7 +55,7 @@ class AlbumsController < ApplicationController
     end
 
     get '/albums/refresh' do
-        redirect to '/login' if !Helpers.is_logged_in?(session)
+        redirect to '/' unless Helpers.is_logged_in?(session)
         redirect to '/setup' if Helpers.current_user(session).setup.nil?
 
         Helpers.load_songs(session)
@@ -68,7 +68,7 @@ class AlbumsController < ApplicationController
     end
  
     get '/albums/select/:type' do
-        redirect to '/login' if !Helpers.is_logged_in?(session)
+        redirect to '/' unless Helpers.is_logged_in?(session)
         redirect to '/setup' if Helpers.current_user(session).setup.nil?       
         
         user = Helpers.current_user(session)
@@ -89,7 +89,7 @@ class AlbumsController < ApplicationController
     # DELETE
 
     get '/albums/:song_id/delete' do
-        redirect to '/login' if !Helpers.is_logged_in?(session)
+        redirect to '/' unless Helpers.is_logged_in?(session)
         redirect to '/setup' if Helpers.current_user(session).setup.nil?   
         
         Helpers.remove_song(params[:song_id].to_i, session)

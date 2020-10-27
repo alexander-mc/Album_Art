@@ -4,7 +4,7 @@ class SetupsController < ApplicationController
     # Create and read views were almost the same, so I've merged the two routes/views
 
     get '/setup' do
-        redirect to '/login' unless Helpers.is_logged_in?(session)
+        redirect to '/' unless Helpers.is_logged_in?(session)
         @user = Helpers.current_user(session)
         erb :'/setup/index'
     end
@@ -28,7 +28,7 @@ class SetupsController < ApplicationController
     end
 
     get '/setup/refresh' do
-        redirect to '/login' unless Helpers.is_logged_in?(session)
+        redirect to '/' unless Helpers.is_logged_in?(session)
         
         Helpers.load_songs(session)
         flash[:setup_refresh] = "Done!"

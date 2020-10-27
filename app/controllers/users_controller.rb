@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
     get '/signup' do
         redirect to '/albums' if Helpers.is_logged_in?(session)
+
         erb :'/users/signup'
     end
 
