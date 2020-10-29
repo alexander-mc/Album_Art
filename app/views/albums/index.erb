@@ -25,15 +25,10 @@
             <tr>
               <% row.each do |s| %>
                 <td>
-                    <%# Temp workaround Spotify bug %>
-                    <% if @user.id == 1 %>
-                        <img src="<%= s.album.image %>" onclick="playPause('<%= s.id %>')" alt="album cover" class="album-cover">
-                        <audio preload="auto" id="<%= s.id %>">
-                                <source src="<%= s.preview_url %>">
-                        </audio>
-                    <% else %>
-                        <a href="<%= s.external_url %>" target="_blank"><img src="<%= s.album.image %>" alt="album cover" class="album-cover"></a>
-                    <% end %>                    
+                  <img src="<%= s.album.image %>" onclick="playPause('<%= s.id %>')" alt="album cover" class="album-cover">
+                  <audio preload="auto" id="<%= s.id %>">
+                          <source src="<%= s.preview_url %>">
+                  </audio>
                 </td>
               <% end %>
             </tr>

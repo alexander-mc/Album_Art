@@ -40,15 +40,10 @@
                             <input type="checkbox" name="preferred_song_ids[]" value="<%= s.id %>" <%='checked' if @preferred_song_ids.include?(s.id) %>>
                         </div>
                         <div class="col-2">
-                            <%# Disabled song preview on click for all users except BuzzLlightYear %>            
-                            <% if @user.id == 1 %>
-                                <img src="<%= s.album.image %>" onclick="playPause('<%= s.id %>')" alt="album cover" class="album-cover">
-                                <audio preload="auto" id="<%= s.id %>">
-                                        <source src="<%= s.preview_url %>" />
-                                </audio>
-                            <% else %>
-                                <img src="<%= s.album.image %>" alt="album cover" class="img-album-cover" class="album-cover">
-                            <% end %>
+                            <img src="<%= s.album.image %>" onclick="playPause('<%= s.id %>')" alt="album cover" class="album-cover">
+                            <audio preload="auto" id="<%= s.id %>">
+                                    <source src="<%= s.preview_url %>" />
+                            </audio>
                         </div>
                         <div class="col-3">
                             <div class="col-3-row-1"><p>ALBUM: <%= s.album.title %></p></div>
