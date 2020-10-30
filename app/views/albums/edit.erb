@@ -40,10 +40,16 @@
                             <input type="checkbox" name="preferred_song_ids[]" value="<%= s.id %>" <%='checked' if @preferred_song_ids.include?(s.id) %>>
                         </div>
                         <div class="col-2">
-                            <img src="<%= s.album.image %>" onclick="playPause('<%= s.id %>')" alt="album cover" class="album-cover">
-                            <audio preload="auto" id="<%= s.id %>">
-                                    <source src="<%= s.preview_url %>" />
-                            </audio>
+
+                            <% if s.preview_url == '[]' %>
+                                <a href="<%= s.external_url %>" target="_blank"><img src="<%= s.album.image %>" alt="album cover" class="album-cover"></a>
+                            <% else %>
+                                <img src="<%= s.album.image %>" onclick="playPause('<%= s.id %>')" alt="album cover" class="album-cover">
+                                <audio preload="auto" id="<%= s.id %>">
+                                        <source src="<%= s.preview_url %>" />
+                                </audio>
+                            <% end %>
+
                         </div>
                         <div class="col-3">
                             <div class="col-3-row-1"><p>ALBUM: <%= s.album.title %></p></div>

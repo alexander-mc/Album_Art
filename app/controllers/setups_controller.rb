@@ -13,17 +13,18 @@ class SetupsController < ApplicationController
         user = Helpers.current_user(session)
         num_songs_needed = params[:rows].to_i * params[:columns].to_i
         
-        user.create_setup(params)
+        user.build_setup(params)
 
         # Validate input
         if !user.setup.valid?
             flash[:setup_error] = user.setup.errors.full_messages
             redirect to '/setup'
         elsif user.songs.count < num_songs_needed
-            flash[:setup_error] = Array("This setup requires #{num_songs_needed} songs. Please adjust the number of columns/rows or click on 'Refresh' to see if any more songs can be loaded from Spotify (songs loaded in the past will not be deleted).")
+            flash[:setup_error] = Array("This setup requires #{num_songs_needed} songs. Adjust the number of columns/rows or click on 'Refresh' to check if any additional songs can be loaded from Spotify.")
             redirect to '/setup'
         end
 
+        user.setup.save
         redirect to '/albums/edit'
     end
 
