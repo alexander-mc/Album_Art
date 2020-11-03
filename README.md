@@ -10,7 +10,7 @@ This program serves the following purposes:
 
 * Stores information on recently played Spotify songs, such as album cover images, song titles, and artist names. Recently played songs are accessed via Spotify's API and the Ruby wrapper, [RSpotify](https://github.com/guilhermesad/rspotify). Since Spotify's [Recently Played API](https://developer.spotify.com/documentation/web-api/reference-beta/) only allows users to retrieve information on the past 50 songs, only the most recently played 50 songs can be stored at a time. Thus, users seeking to track their song history beyond 50 songs should regularly log into the program. Songs are automatically loaded each time a user logs in, however songs can be loaded without logging out by clicking 'refresh'.
 
-* Displays the album covers for recently played songs in a clean, customizeable view. Users decide which covers to showcase, along with the number of rows and columns of the grid on which to display the songs.
+* Displays the album covers for recently played songs in a clean, customizable view. Users decide which covers to showcase, along with the number of rows and columns of the grid on which to display the songs.
 
 * Plays 30-second song previews. Users can preview songs by clicking on the album covers in the program.
 

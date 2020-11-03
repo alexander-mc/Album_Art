@@ -57,6 +57,7 @@ class Helpers
     end
 
     def self.set_random_preferred_songs(session)
+
         user = current_user(session)
 
         song_ids = user.songs.map{|s| s.id}
@@ -64,6 +65,7 @@ class Helpers
 
         user.preferred_songs = (song_ids).to_a.shuffle.take(num_songs_needed)
         user.save(validate: false)
+
     end
 
     def self.remove_song(song_id, session)
