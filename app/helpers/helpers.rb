@@ -30,12 +30,12 @@ class Helpers
                 user_ids = song.user_ids
                 user_ids << user.id unless user_ids.include?(user.id)
 
-                # Remove preview attribute if Spotify preview link is disabled
+                # Note: Remove preview attribute if Spotify preview link is disabled
                 song.update(title: s.name, preview_url: s.preview_url, external_url: s.external_urls["spotify"], artist_ids: artist_ids, user_ids: user_ids)
             else
                 album = Album.find_or_create_by(title: s.album.name, image: s.album.images[2]['url'])
                 
-                # Remove preview attribute if Spotify preview link is disabled
+                # Note: Remove preview attribute if Spotify preview link is disabled
                 album.songs.build(title: s.name, preview_url: s.preview_url, external_url: s.external_urls["spotify"], artist_ids: artist_ids, user_ids: Array(user.id))
                 album.songs.last.save(validate: false)
             end
