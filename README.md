@@ -46,4 +46,4 @@ export SESSION_SECRET=XXXXXXXXXXXXXXXXXX
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/alexander-mc/Album_Art.git. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/alexander-mc/album_art.git. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
