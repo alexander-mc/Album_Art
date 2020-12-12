@@ -24,7 +24,7 @@ This program serves the following purposes:
 ![Select Songs Screen 2](/public/screenshots/06_Edit_2.png)  
 ![Display Album Covers Screen](/public/screenshots/07_Display.png)  
 
-## Installation
+## Configuration
 
 1. Register a Spotify application and obtain a client ID and client secret. Follow this guide from Spotify for information on how to do this: https://developer.spotify.com/documentation/general/guides/app-settings.
 
