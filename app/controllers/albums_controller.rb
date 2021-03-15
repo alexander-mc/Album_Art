@@ -1,9 +1,5 @@
 class AlbumsController < ApplicationController
 
-    # CREATE
-
-    # READ
-
     get '/albums' do
 
         @user = Helpers.current_user(session)
@@ -17,8 +13,6 @@ class AlbumsController < ApplicationController
 
         erb :'/albums/index'
     end
-
-    # UPDATE
 
     get '/albums/edit' do
         redirect to '/' unless Helpers.is_logged_in?(session)
@@ -85,8 +79,6 @@ class AlbumsController < ApplicationController
 
         redirect to '/albums/edit'
     end
-
-    # DELETE
 
     get '/albums/:song_id/delete' do
         redirect to '/' unless Helpers.is_logged_in?(session)

@@ -1,8 +1,5 @@
 class SetupsController < ApplicationController
 
-    # CREATE / READ / UDPATE
-    # Create and read views were almost the same, so I've merged the two routes/views
-
     get '/setup' do
         redirect to '/' unless Helpers.is_logged_in?(session)
         @user = Helpers.current_user(session)
@@ -15,7 +12,6 @@ class SetupsController < ApplicationController
         
         user.build_setup(params)
 
-        # Validate input
         if !user.setup.valid?
             flash[:setup_error] = user.setup.errors.full_messages
             redirect to '/setup'
@@ -36,7 +32,5 @@ class SetupsController < ApplicationController
 
         redirect to '/setup'
     end
-
-    # DELETE
 
 end

@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-    # CREATE
-
     get '/signup' do
         redirect to '/albums' if Helpers.is_logged_in?(session)
 
@@ -11,7 +9,6 @@ class UsersController < ApplicationController
     post '/signup' do
         user = User.create(params)
 
-        # Validate input
         if !user.valid?
             flash[:signup_error] = user.errors.full_messages
             redirect to '/signup'
@@ -20,8 +17,6 @@ class UsersController < ApplicationController
         session[:user_id] = user.id
         redirect to '/auth/spotify'
     end
-
-    # READ
 
     get '/login' do
         redirect to '/albums' if Helpers.is_logged_in?(session)
@@ -48,9 +43,5 @@ class UsersController < ApplicationController
         session.clear if Helpers.is_logged_in?(session)
         redirect to '/'
     end
-
-    # UPDATE
-
-    # DELETE
 
 end

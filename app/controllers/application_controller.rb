@@ -27,7 +27,6 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/auth/spotify/callback' do
-        # Stores Spotify credentials in session
         session[:credentials] = request.env['omniauth.auth']
 
         Helpers.load_songs(session)
