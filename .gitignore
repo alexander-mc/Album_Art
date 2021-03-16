@@ -1,2 +1,5 @@
 # Ignore .env files
 /.env
+
+# Ignore IMPORTANT file
+1_IMPORTANT/
