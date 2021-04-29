@@ -9,7 +9,7 @@ This app serves the following purposes:
 ## Links
 
 + [Album Art](https://album-art.herokuapp.com/) - Play with the app! Note that this app works best on Chrome. Also, because this app is deployed on Heroku, it may take a minute to load. If it takes longer than this, you may need to refresh your browser.
-+ [Demo](https://youtu.be/V8r7mgcpA4A) - Watch me demo the app
++ [Demo](https://youtu.be/V8r7mgcpA4A) - Watch me demo the app.
 
 ## Features
 
