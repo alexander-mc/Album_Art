@@ -1,6 +1,6 @@
 # Album Art
 
-This program serves the following purposes:
+[Album Art](https://album-art.herokuapp.com/) serves the following purposes:
 
 1. To store data on a Spotify user's song history. Accessing information about what a user has listened to can be challenging and is not instantaneous.
 
