@@ -6,6 +6,11 @@ This program serves the following purposes:
 
 2. To prototype how an Apple-like, Album Artwork screen saver could function for Spotify users.
 
+## Links
+
++ [Album Art](https://album-art.herokuapp.com/) - Play with the app! Note that this app works best on Chrome.
++ [Live Demo](https://youtu.be/V8r7mgcpA4A) - Watch me demo the app
+
 ## Features
 
 * Stores information on recently played Spotify songs, such as album cover images, song titles, and artist names. Recently played songs are accessed via Spotify's API and the Ruby wrapper, [RSpotify](https://github.com/guilhermesad/rspotify). Since Spotify's [Recently Played API](https://developer.spotify.com/documentation/web-api/reference-beta/) only allows users to retrieve information on the past 50 songs, only the most recently played 50 songs can be stored at a time. Thus, users seeking to track their song history beyond 50 songs should regularly log into the program. Songs are automatically loaded each time a user logs in, however songs can be loaded without logging out by clicking 'refresh'.
