@@ -1,10 +1,9 @@
 # Album Art
 
-This app serves the following purposes:
+I built Album Art for mainly two reasons:
 
-1. To store data on a Spotify user's song history. Accessing information about what a user has listened to can be challenging and is not instantaneous.
-
-2. To prototype how an Apple-like, Album Artwork screen saver could function for Spotify users.
+1. To understand how to use Spotify's API and store data on a user's song history
+2. To prototype how Apple's Album Artwork screen saver could function for Spotify users
 
 ## Links
 
